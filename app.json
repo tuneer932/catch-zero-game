@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "catch-zero-game",
+    "slug": "catch-zero-game",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "catch-zero-game"
+}
