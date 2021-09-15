@@ -13,6 +13,10 @@ export default function Main() {
   const currentNumber = useRef(randomNumber());
   const score = useRef(0);
   const zeroCount = useRef(0);
+  const zeroSkipped = useRef(0);
+  const nonZeroSkipped = useRef(0);
+  const zeroClicked = useRef(0);
+  const nonZeroClicked = useRef(0);
   const displayedCount = useRef(0);
 
   const setScore = (value) => {
@@ -21,6 +25,22 @@ export default function Main() {
 
   const setZeroCount = (value) => {
     zeroCount.current = value;
+  };
+
+  const setZeroSkipped = (value) => {
+    zeroSkipped.current = value;
+  };
+
+  const setNonZeroSkipped = (value) => {
+    nonZeroSkipped.current = value;
+  };
+
+  const setZeroClicked = (value) => {
+    zeroClicked.current = value;
+  };
+
+  const setNonZeroClicked = (value) => {
+    nonZeroClicked.current = value;
   };
 
   const setDisplayedCount = (value) => {
@@ -39,6 +59,10 @@ export default function Main() {
   const resetGame = () => {
     setIsGameStarted(false);
     setIsGameCompleted(false);
+    setZeroClicked(0);
+    setZeroSkipped(0);
+    setNonZeroClicked(0);
+    setNonZeroSkipped(0);
     setScore(0);
   };
 
@@ -52,6 +76,10 @@ export default function Main() {
             zeroCount={zeroCount}
             displayedCount={displayedCount}
             resetGame={resetGame}
+            zeroSkipped={zeroSkipped}
+            zeroClicked={zeroClicked}
+            nonZeroClicked={nonZeroClicked}
+            nonZeroSkipped={nonZeroSkipped}
           ></CompletedCard>
         ) : (
           <Card
@@ -65,6 +93,14 @@ export default function Main() {
             score={score}
             setZeroCount={setZeroCount}
             setDisplayedCount={setDisplayedCount}
+            setZeroClicked={setZeroClicked}
+            setZeroSkipped={setZeroSkipped}
+            setNonZeroSkipped={setNonZeroSkipped}
+            setNonZeroClicked={setNonZeroClicked}
+            zeroSkipped={zeroSkipped}
+            zeroClicked={zeroClicked}
+            nonZeroClicked={nonZeroClicked}
+            nonZeroSkipped={nonZeroSkipped}
           ></Card>
         )}
       </View>

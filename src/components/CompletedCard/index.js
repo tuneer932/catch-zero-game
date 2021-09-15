@@ -3,7 +3,16 @@ import { Text, View, Button } from "react-native";
 import styles from "./styles";
 
 export default function CompletedCard(props) {
-  const { score, displayedCount, zeroCount, resetGame } = props;
+  const {
+    score,
+    displayedCount,
+    zeroCount,
+    resetGame,
+    zeroSkipped,
+    zeroClicked,
+    nonZeroClicked,
+    nonZeroSkipped,
+  } = props;
 
   return (
     <View style={styles.mainView}>
@@ -15,6 +24,18 @@ export default function CompletedCard(props) {
         </Text>
         <Text style={[styles.timerCardText]}>
           Total 0's displayed: {zeroCount.current}
+        </Text>
+        <Text style={[styles.timerCardText]}>
+          Total 0's skipped: {zeroSkipped.current}
+        </Text>
+        <Text style={[styles.timerCardText]}>
+          Total non 0's skipped: {nonZeroSkipped.current}
+        </Text>
+        <Text style={[styles.timerCardText]}>
+          Total 0's clicked: {zeroClicked.current}
+        </Text>
+        <Text style={[styles.timerCardText]}>
+          Total non 0's clicked: {nonZeroClicked.current}
         </Text>
       </View>
 

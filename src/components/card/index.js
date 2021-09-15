@@ -16,6 +16,14 @@ export default function Card(props) {
     setIsGameCompleted,
     setZeroCount,
     setDisplayedCount,
+    setZeroClicked,
+    setZeroSkipped,
+    setNonZeroSkipped,
+    setNonZeroClicked,
+    zeroSkipped,
+    zeroClicked,
+    nonZeroClicked,
+    nonZeroSkipped,
   } = props;
   const [timerString, setTimerString] = useState("");
   const timer = useRef(gameTime);
@@ -25,8 +33,10 @@ export default function Card(props) {
   const numberSkipped = () => {
     if (currentNumber.current === 0) {
       setScore(score.current - 3);
+      setZeroSkipped(zeroSkipped.current + 1);
     } else {
       setScore(score.current + 1);
+      setNonZeroSkipped(nonZeroSkipped.current + 1);
     }
     updateNumber();
   };
@@ -34,8 +44,10 @@ export default function Card(props) {
   const numberPressed = () => {
     if (currentNumber.current === 0) {
       setScore(score.current + 5);
+      setZeroClicked(zeroClicked.current + 1);
     } else {
       setScore(score.current - 2.5);
+      setNonZeroClicked(nonZeroClicked.current + 1);
     }
     updateNumber();
   };
